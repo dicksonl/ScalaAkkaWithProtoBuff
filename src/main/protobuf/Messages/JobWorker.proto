@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+import "Messages/Trip.proto";
+import "scalapb/scalapb.proto";
+
+package Messages.JobWorker;
+
+message Task{
+    option (scalapb.message).extends = "Cluster.JobWorker.Event";
+    repeated Trip result = 1 [(scalapb.field).collection_type="List"];
+    repeated int32 filter = 2[(scalapb.field).collection_type="List"];
+}

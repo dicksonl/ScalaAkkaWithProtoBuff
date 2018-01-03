@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package Messages;
+
+message Trip {
+   int64 CassandraTripId = 1;
+   int32 DummyTripId = 2;
+   int32 VehicleNodeId = 3;
+   int32 DriverNodeId = 4;
+   int32 BusGrpId = 5;
+   google.protobuf.Timestamp TripStart_UTC = 6;
+   google.protobuf.Timestamp TripEnd_UTC = 7;
+   google.protobuf.Timestamp TripStart_LT = 8;
+   google.protobuf.Timestamp TripEnd_LT = 9;
+   int32 DrivingTime = 10;
+   int32 MaximumSpeed = 11;
+   int32 OverSpeedCount = 12;
+   int32 OverSpeedDuration = 13;
+   int32 SystemOverSpeedCount = 14;
+   int32 SystemOverSpeedDuration = 15;
+   int32 SystemOverSpeedDistance = 16;
+   int32 HarshAccelerationCount = 17;
+   int32 HarshBrakeCount = 18;
+   int32 HarshBumpCount = 19;
+   int32 HarshCorneringCount = 20;
+   int32 ExcessIdleCount = 21;
+   int32 ExcessIdleDuration = 22;
+   int32 FreeWheelDuration = 23;
+   int32 PanicStatusCount = 24;
+   int32 OverRevCount = 25;
+   int32 OverRevDuration = 26;
+   int32 OverRevDistance = 27;
+   int32 MaximumRpm = 28;
+   float TripFuel = 29;
+   int32 FWSpeed = 30;
+   int32 FWRPM = 31;
+   int32 GreenBandTime = 32;
+   int32 GreenBandLow = 33;
+   int32 GreenBandHi = 34;
+   int32 HourMeter = 35;
+   float StartLongitude = 36;
+   float StartLatitude = 37;
+   float StopLongitude = 38;
+   float StopLatitude = 39;
+   int32 TripOdo = 40;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+import "scalapb/scalapb.proto";
+import "Messages/Trip.proto";
+
+package Messages.JobMaster;
+
+message StartJob{
+    option (scalapb.message).extends = "Cluster.JobMaster.Event";
+
+    string name = 1;
+    repeated int32 filter = 2[(scalapb.field).collection_type="List"];
+}
+
+message Enlist{}
+
+message TaskResult{
+    option (scalapb.message).extends = "Cluster.JobMaster.Event";
+
+    repeated Trip result = 1 [(scalapb.field).collection_type="List"];
+}

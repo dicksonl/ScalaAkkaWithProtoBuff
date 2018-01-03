@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+import "Messages/Trip.proto";
+import "scalapb/scalapb.proto";
+
+package Messages.JobReceptionist;
+
+message JobResult {
+   option (scalapb.message).extends = "Cluster.JobReceptionist.Event";
+
+   string name = 1;
+   repeated Trip trips = 2 [(scalapb.field).collection_type="List"];
+}
+
+message JobRequest {
+    option (scalapb.message).extends = "Cluster.JobReceptionist.Event";
+
+    string name = 1;
+    repeated int32 filter = 3[(scalapb.field).collection_type="List"];
+}
+
+message JobSuccess {
+     option (scalapb.message).extends = "Cluster.JobReceptionist.Response";
+
+     string name = 1;
+     repeated Trip result = 2 [(scalapb.field).collection_type="List"];
+}
+
+message JobFailure {
+     option (scalapb.message).extends = "Cluster.JobReceptionist.Response";
+
+     string name = 1;
+}
